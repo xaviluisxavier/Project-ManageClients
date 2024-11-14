@@ -37,30 +37,33 @@ def removeAccomodations(filename: str) -> None:
 
 
 def updateAccomodations(filename: str) -> None:
-    idAcc = pty.get_input('Insert IDACC to edit: ')
 
+    idAcc = pty.get_input('Insert IDACC to edit: ')
     file = open(filename, 'r', encoding='utf-8')
-    lines = file.readlines()
+    text = file.read().split('\n')
+    lst = []
+    for line in text:
+        lst.append(line.split(';'))
     file.close()
     file = open(filename, 'w', encoding='utf-8')
-
-    for line in lines:
-        fields = line.strip().split(';')
-        if fields[0] == idAcc:
+    for i in range(len(lst) - 1):
+        if lst[i][0] == idAcc:
 
             new_local = pty.get_input("Enter new LOCAL: ")
             new_tipology = pty.get_input("Enter new TIPOLOGY: ")
             new_type = pty.get_input("Enter new TYPE: ")
             new_price = pty.get_input("Enter new PRICE: ")
 
-            # Cria a nova linha
-            new_line = f"{idAcc};{new_local};{new_tipology};{new_type};{new_price}\n"
-            file.write(new_line)
-        else:
-            file.write(line)
+            lst[i][1] = new_local
+            lst[i][2] = new_tipology
+            lst[i][3] = new_type
+            lst[i][4] = new_price
+        aux = ''
+        for j in lst[i]:
+            aux += str(j) + ';'
+        file.write(aux[:-1] + '\n')
 
     file.close()
-
     return None
 
 
@@ -71,3 +74,4 @@ def AccomodationTable() -> None:
     print(tabulate(data, headers='keys', tablefmt="fancy_grid"))
 
     return None
+

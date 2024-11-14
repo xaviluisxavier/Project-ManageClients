@@ -41,35 +41,34 @@ def removeClient(filename: str) -> None:
 
 
 def updateClient(filename: str) -> None:
-
-    idcard = pty.get_input('Insert IDACC to edit: ')
+    idcard = pty.get_input('Insert IDCARD to edit: ')
 
     file = open(filename, 'r', encoding='utf-8')
-    lines = file.readlines()
+    text = file.read().split('\n')
+    lst = []
+    for line in text:
+        lst.append(line.split(';'))
     file.close()
+
     file = open(filename, 'w', encoding='utf-8')
 
-    for line in lines:
-        fields = line.strip().split(';')
-        if fields[3] == idcard:
+    for i in range(len(lst) - 1):
+        if lst[i][3] == idcard:
 
             new_name = pty.get_input("Enter new Name: ")
             new_age = pty.get_input("Enter new Age: ")
             new_address = pty.get_input("Enter new Address: ")
 
-
-            # Cria a nova linha
-            new_line = f"{new_name};{new_age};{new_address};{idcard}\n"
-            file.write(new_line)
-        else:
-            file.write(line)
+            lst[i][0] = new_name
+            lst[i][1] = new_age
+            lst[i][2] = new_address
+        aux = ''
+        for j in lst[i]:
+            aux += str(j) + ';'
+        file.write(aux[:-1] + '\n')
 
     file.close()
-
     return None
-
-
-
 
 def ClientsTable() -> None:
     data = pd.read_csv('customers.csv', delimiter=';', dtype=str)
