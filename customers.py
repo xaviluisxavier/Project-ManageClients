@@ -40,7 +40,31 @@ def removeClient(filename: str) -> None:
     return None
 
 
-def updateClient() -> None:
+def updateClient(filename: str) -> None:
+
+    idcard = pty.get_input('Insert IDACC to edit: ')
+
+    file = open(filename, 'r', encoding='utf-8')
+    lines = file.readlines()
+    file.close()
+    file = open(filename, 'w', encoding='utf-8')
+
+    for line in lines:
+        fields = line.strip().split(';')
+        if fields[3] == idcard:
+
+            new_name = pty.get_input("Enter new Name: ")
+            new_age = pty.get_input("Enter new Age: ")
+            new_address = pty.get_input("Enter new Address: ")
+
+
+            # Cria a nova linha
+            new_line = f"{new_name};{new_age};{new_address};{idcard}\n"
+            file.write(new_line)
+        else:
+            file.write(line)
+
+    file.close()
 
     return None
 

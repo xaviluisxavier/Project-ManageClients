@@ -65,6 +65,8 @@ def submenu():
                         managecustomers.ClientsTable()
                     case 2:
                         managecustomers.removeClient('customers.csv')
+                    case 3:
+                        managecustomers.updateClient('customers.csv')
                     case 4:
                         return
 
@@ -100,6 +102,8 @@ def menuAccomodations():
                         manageaccomodations.AccomodationTable()
                     case 2:
                         manageaccomodations.removeAccomodations('accomodations.csv')
+                    case 3:
+                        manageaccomodations.updateAccomodations('accomodations.csv')
 
                     case 4:
                         return

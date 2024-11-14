@@ -37,6 +37,30 @@ def removeAccomodations(filename: str) -> None:
 
 
 def updateAccomodations(filename: str) -> None:
+    idAcc = pty.get_input('Insert IDACC to edit: ')
+
+    file = open(filename, 'r', encoding='utf-8')
+    lines = file.readlines()
+    file.close()
+    file = open(filename, 'w', encoding='utf-8')
+
+    for line in lines:
+        fields = line.strip().split(';')
+        if fields[0] == idAcc:
+
+            new_local = pty.get_input("Enter new LOCAL: ")
+            new_tipology = pty.get_input("Enter new TIPOLOGY: ")
+            new_type = pty.get_input("Enter new TYPE: ")
+            new_price = pty.get_input("Enter new PRICE: ")
+
+            # Cria a nova linha
+            new_line = f"{idAcc};{new_local};{new_tipology};{new_type};{new_price}\n"
+            file.write(new_line)
+        else:
+            file.write(line)
+
+    file.close()
+
     return None
 
 
