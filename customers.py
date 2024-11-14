@@ -15,11 +15,6 @@ def addClient(filename: str) -> None:
 
 
 
-def readClient() -> None:
-
-    return None
-
-
 def removeClient(filename: str) -> None:
     idcard = pty.get_input("Insert IDCARD: ")
     file = open(filename, 'r', encoding='utf-8')
