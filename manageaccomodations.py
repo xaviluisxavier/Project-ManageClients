@@ -3,18 +3,20 @@ import empty as pty
 import pandas as pd
 
 def createAccomodations(filename: str) -> None:
-    id = int(pty.get_input('Insert the id: '))
+
+    idAcc = int(pty.get_input('Insert the idAcc: '))
     local = pty.get_input('Insert the local: ')
     tipology = pty.get_input('Insert the tipology: ')
     type = pty.get_input('Insert the type: ')
-    price = (float(pty.get_input('Insert the price: ')))
+    price = int(pty.get_input('Insert the price: '))
     file = open(filename, 'a')
-    file.write(str(id) + ';' + local + ';' + tipology + ';' + type + ';' + str(price) + '\n')
+    file.write(str(idAcc) + ';' + local + ';' + tipology + ';' + type + ';' + str(price) + '\n')
     file.close()
     return None
 
+
 def removeAccomodations(filename: str) -> None:
-    id = pty.get_input('Insert ID: ')
+    idAcc = (pty.get_input('Insert IDACC: '))
     file = open('accomodations.csv', 'r', encoding='utf-8')
     text = file.read().split('\n')
     lst = []
@@ -23,15 +25,15 @@ def removeAccomodations(filename: str) -> None:
     file.close()
     file = open(filename, 'w', encoding='utf-8')
     for i in range(len(lst) - 1):
-        if not id == lst[i][1]:
+        if not idAcc == lst[i][0]:
             aux = ''
             for j in lst[i]:
                 aux += str(j) + ';'
+
             file.write(aux[:-1] + '\n')
     file.close()
 
     return None
-
 
 
 def updateAccomodations(filename: str) -> None:

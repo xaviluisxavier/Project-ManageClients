@@ -34,6 +34,7 @@ def removeClient(filename: str) -> None:
             aux = ''
             for j in lst[i]:
                 aux += str(j) + ';'
+
             file.write(aux[:-1] + '\n')  # Remove o último ';' antes de escrever
     file.close()
     return None
