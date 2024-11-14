@@ -4,6 +4,7 @@ import pandas as pd
 
 
 def addClient(filename: str) -> None:
+   try:
     name = input("Insert Name: ")
     age = int(input("Insert Age: "))
     address = input("Insert Address: ")
@@ -11,7 +12,10 @@ def addClient(filename: str) -> None:
     file = open(filename, 'a', encoding='utf-8')
     file.write(name +';' + str(age) + ';' + address + ';' + idCard + '\n')
     file.close()
+   except ValueError:
+    print("Error")
     return None
+
 
 def readClient() -> None:
 

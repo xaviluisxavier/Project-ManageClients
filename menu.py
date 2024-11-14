@@ -33,6 +33,8 @@ def menu_principal():
             print("Option invalid")
       except KeyboardInterrupt:
           print('\nDesligou o programa!')
+          break
+
 
 def submenu():
     while True:
@@ -62,7 +64,8 @@ def submenu():
         else:
             print("Option invalid")
       except KeyboardInterrupt:
-          print('Desligou o programa')
+            print('\nDesligou o programa!')
+            break
 
 
 
@@ -94,4 +97,4 @@ def menuAccomodations():
 
      except KeyboardInterrupt:
          print('\nDesligou o programa!')
-
+         break
