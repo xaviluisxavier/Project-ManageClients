@@ -1,20 +1,20 @@
 from tabulate import tabulate
-
+import empty as pty
 import pandas as pd
 
 def createAccomodations(filename: str) -> None:
-    id = int(input('Insert the id: '))
-    local = input('Insert the local: ')
-    tipology = input('Insert the tipology: ')
-    type = input('Insert the type: ')
-    price = (float(input('Insert the price: ')))
+    id = int(pty.get_input('Insert the id: '))
+    local = pty.get_input('Insert the local: ')
+    tipology = pty.get_input('Insert the tipology: ')
+    type = pty.get_input('Insert the type: ')
+    price = (float(pty.get_input('Insert the price: ')))
     file = open(filename, 'a')
     file.write(str(id) + ';' + local + ';' + tipology + ';' + type + ';' + str(price) + '\n')
     file.close()
     return None
 
 def removeAccomodations(filename: str) -> None:
-    id = int(input('Insert ID: '))
+    id = pty.get_input('Insert ID: ')
     file = open('accomodations.csv', 'r', encoding='utf-8')
     text = file.read().split('\n')
     lst = []

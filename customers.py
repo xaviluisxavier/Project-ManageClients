@@ -1,16 +1,16 @@
 from tabulate import tabulate
-
+import empty as pty
 import pandas as pd
 
 
 def addClient(filename: str) -> None:
 
-        name = input("Insert Name: ")
-        age = int(input("Insert Age: "))
-        address = input("Insert Address: ")
-        idCard = input("Insert IDCARD: ")
+        name = pty.get_input("Insert Name: ")
+        age = int(pty.get_input("Insert Age: "))
+        address = pty.get_input("Insert Address: ")
+        idCard = int(pty.get_input("Insert IDCARD: "))
         file = open(filename, 'a', encoding='utf-8')
-        file.write(name +';' + str(age) + ';' + address + ';' + idCard + '\n')
+        file.write(name +';' + str(age) + ';' + address + ';' + str(idCard) + '\n')
         file.close()
 
 
@@ -21,8 +21,7 @@ def readClient() -> None:
 
 
 def removeClient(filename: str) -> None:
-
-    idcard = input("Insert IDCARD: ")
+    idcard = pty.get_input("Insert IDCARD: ")
     file = open(filename, 'r', encoding='utf-8')
     text = file.read().split('\n')
     lst = []
@@ -53,4 +52,5 @@ def ClientsTable() -> None:
     print(tabulate(data, headers='keys', tablefmt="fancy_grid"))
 
     return None
+
 

@@ -1,5 +1,6 @@
 import manageaccomodations
 import customers as managecustomers
+import empty as pty
 
 
 def menu_principal():
@@ -17,7 +18,7 @@ def menu_principal():
         )
 
         try:
-            opcao = int(input('Escolha uma opção: '))
+            opcao = int(pty.get_input('Escolha uma opção: '))
 
 
             if 1 <= opcao <= 5:
@@ -52,7 +53,7 @@ def submenu():
             " \n-----------------------------"
         )
         try:
-            sub_opcao = int(input("Escolha uma opção: "))
+            sub_opcao = int(pty.get_input("Escolha uma opção: "))
 
 
             if 1 <= sub_opcao <= 4:
@@ -87,7 +88,7 @@ def menuAccomodations():
               )
         try:
 
-            opcaoAcc = int(input('Escolha uma opcao: '))
+            opcaoAcc = int(pty.get_input('Escolha uma opcao: '))
 
 
 
