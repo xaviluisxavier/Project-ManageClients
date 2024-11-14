@@ -8,9 +8,9 @@ def createAccomodations(filename: str) -> None:
     local = pty.get_input('Insert the local: ')
     tipology = pty.get_input('Insert the tipology: ')
     type = pty.get_input('Insert the type: ')
-    price = int(pty.get_input('Insert the price: '))
+    price = float(pty.get_input('Insert the price: '))
     file = open(filename, 'a')
-    file.write(str(idAcc) + ';' + local + ';' + tipology + ';' + type + ';' + str(price) + '\n')
+    file.write(str(idAcc) + ';' + local + ';' + tipology + ';' + type + ';' + f"{price:.2f}" + '\n')
     file.close()
     return None
 
