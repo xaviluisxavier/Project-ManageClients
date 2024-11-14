@@ -71,7 +71,7 @@ def AccomodationTable() -> None:
 
     data = pd.read_csv('accomodations.csv', delimiter=';', dtype=str)
     print("\n=== List of Accomodations ===")
-    print(tabulate(data, headers='keys', tablefmt="fancy_grid"))
+    print(tabulate(data, headers='keys', tablefmt="fancy_grid", showindex=False))
 
     return None
 

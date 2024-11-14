@@ -68,7 +68,7 @@ def updateClient(filename: str) -> None:
 def ClientsTable() -> None:
     data = pd.read_csv('customers.csv', delimiter=';', dtype=str)
     print("\n=== List of Clients ===")
-    print(tabulate(data, headers='keys', tablefmt="fancy_grid"))
+    print(tabulate(data, headers='keys', tablefmt="fancy_grid", showindex=False))
 
     return None
 
