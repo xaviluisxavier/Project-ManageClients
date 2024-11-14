@@ -89,7 +89,7 @@ def menuAccomodations():
             " \n3. Update Accomodation    "
             " \n4. Return                 "
         "  \n -----------------------------"
-              )
+        )
         try:
 
             opcaoAcc = int(pty.get_input('Escolha uma opcao: '))
