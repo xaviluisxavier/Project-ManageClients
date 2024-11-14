@@ -4,7 +4,7 @@ import customers as managecustomers
 
 def menu_principal():
     while True:
-      try:
+
         print(
         "\n-----------------------------"
         "\n MENU:                            "
@@ -15,9 +15,12 @@ def menu_principal():
         "\n5. Exit                           "
         "\n-----------------------------"
         )
-        opcao = int(input('Escolha uma opção: '))
 
-        if 1 <= opcao <= 5:
+        try:
+            opcao = int(input('Escolha uma opção: '))
+
+
+            if 1 <= opcao <= 5:
                 match opcao:
                     case 1:
                         manageaccomodations.createAccomodations('accomodations.csv')
@@ -29,16 +32,16 @@ def menu_principal():
                         menuAccomodations()
                     case 5:
                         break
-        else:
-            print("Option invalid")
-      except KeyboardInterrupt:
-          print('\nDesligou o programa!')
-          break
+            else:
+                print("Option invalid")
+        except KeyboardInterrupt:
+            print('\nDesligou o programa!')
+            break
 
 
 def submenu():
     while True:
-      try:
+
         print(
             " \n-----------------------------"
             " \nMENU CLIENTS:                  "
@@ -48,22 +51,23 @@ def submenu():
             " \n4. Return                      "
             " \n-----------------------------"
         )
+        try:
+            sub_opcao = int(input("Escolha uma opção: "))
 
-        sub_opcao = int(input("Escolha uma opção: "))
 
-        if 1 <= sub_opcao <= 4:
+            if 1 <= sub_opcao <= 4:
 
-            match sub_opcao:
-                case 1:
-                    managecustomers.ClientsTable()
-                case 2:
-                    managecustomers.removeClient('customers.csv')
-                case 4:
-                    return
+                match sub_opcao:
+                    case 1:
+                        managecustomers.ClientsTable()
+                    case 2:
+                        managecustomers.removeClient('customers.csv')
+                    case 4:
+                        return
 
-        else:
-            print("Option invalid")
-      except KeyboardInterrupt:
+            else:
+                print("Option invalid")
+        except KeyboardInterrupt:
             print('\nDesligou o programa!')
             break
 
@@ -71,7 +75,7 @@ def submenu():
 
 def menuAccomodations():
     while True:
-     try:
+
         print(
         "   \n-----------------------------"
             " \nMENU ACCOMODATIONS:       "
@@ -81,20 +85,24 @@ def menuAccomodations():
             " \n4. Return                 "
         "  \n -----------------------------"
               )
-        opcaoAcc = int(input('Escolha uma opcao: '))
+        try:
 
-        if 1 <= opcaoAcc <= 4:
-            match opcaoAcc:
-                case 1:
-                    manageaccomodations.AccomodationTable()
-                case 2:
-                    manageaccomodations.removeAccomodations('accomodations.csv')
+            opcaoAcc = int(input('Escolha uma opcao: '))
 
-                case 4:
-                    return
-        else:
-            print("Option invalid")
 
-     except KeyboardInterrupt:
+
+            if 1 <= opcaoAcc <= 4:
+                match opcaoAcc:
+                    case 1:
+                        manageaccomodations.AccomodationTable()
+                    case 2:
+                        manageaccomodations.removeAccomodations('accomodations.csv')
+
+                    case 4:
+                        return
+            else:
+                print("Option invalid")
+
+        except KeyboardInterrupt:
          print('\nDesligou o programa!')
          break
