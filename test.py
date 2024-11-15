@@ -6,7 +6,7 @@ import os
 USERS_FILE = "users.txt"
 ADMIN_USERNAME = "admin"
 ADMIN_PASSWORD = "adminpass"
-CIBERNAUTA_USERNAME = "cibernauta"
+CIBERNAUTA_USERNAME = "ciber"
 CIBERNAUTA_PASSWORD = "ciberpass"
 
 
