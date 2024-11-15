@@ -4,4 +4,4 @@ def get_input(prompt):
         user_input = input(prompt).strip()
         if user_input:
             return user_input
-        print("Erro: Nao digitou nada!")
+        print("Nao digitou nada!")
