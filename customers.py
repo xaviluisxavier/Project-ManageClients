@@ -73,3 +73,8 @@ def ClientsTable() -> None:
     return None
 
 
+def rent_accomodation() -> None:
+
+    return None
+def rate_accomodation() -> None:
+    return None
