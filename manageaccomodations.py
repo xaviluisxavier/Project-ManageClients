@@ -62,9 +62,11 @@ def updateAccomodations(filename: str) -> None:
         for j in lst[i]:
             aux += str(j) + ';'
         file.write(aux[:-1] + '\n')
+    else:
+        print('ID nao é valido!')
 
-    file.close()
-    return None
+        file.close()
+        return None
 
 
 def AccomodationTable() -> None:
