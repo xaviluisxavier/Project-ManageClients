@@ -62,7 +62,7 @@ def updateClient(filename: str) -> None:
             aux += str(j) + ';'
         file.write(aux[:-1] + '\n')
     else:
-     print('ID nao é valido!')
+     print('\nID nao é valido!')
     file.close()
     return None
 
