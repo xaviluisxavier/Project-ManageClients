@@ -1,4 +1,4 @@
-import manageaccomodations
+import accomodations1 as acc
 import customers as managecustomers
 
 
@@ -23,7 +23,7 @@ def menu_principal():
             if 1 <= opcao <= 5:
                 match opcao:
                     case 1:
-                        manageaccomodations.createAccomodations('accomodations.csv')
+                        acc.createAccomodation('accomodations.csv')
                     case 2:
                         managecustomers.createClient('customers.csv')
                     case 3:
@@ -48,7 +48,7 @@ def submenu():
             ' \n1. Show Clients                '
             " \n2. Remove Clients              "
             " \n3. Update Client    "
-            " \n4. List Client       "
+            " \n4. Read Client       "
             " \n5. Return                      "
             " \n-----------------------------"
         )
@@ -86,8 +86,9 @@ def menuAccomodations():
             " \nMENU ACCOMODATIONS:       "
             ' \n1. Show Accomodations     '
             " \n2. Remove Accomodations   "
-            " \n3. Update Accomodation    "
-            " \n4. Return                 "
+            " \n3. Update Accomodation"
+            " \n4. Read Accomodation    "
+            " \n5. Return                 "
         "  \n -----------------------------"
         )
         try:
@@ -96,16 +97,17 @@ def menuAccomodations():
 
 
 
-            if 1 <= opcaoAcc <= 4:
+            if 1 <= opcaoAcc <= 5:
                 match opcaoAcc:
                     case 1:
-                        manageaccomodations.AccomodationTable()
+                        acc.AccomodationTable()
                     case 2:
-                        manageaccomodations.removeAccomodations('accomodations.csv')
+                        acc.deleteAccomodation('accomodations.csv')
                     case 3:
-                        manageaccomodations.updateAccomodations('accomodations.csv')
-
+                        acc.updateAccomodation('accomodations.csv')
                     case 4:
+                        acc.readAccomodation('accomodations.csv')
+                    case 5:
                         return
             else:
                 print("Option invalid")

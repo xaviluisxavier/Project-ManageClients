@@ -39,14 +39,22 @@ def updateClient(filename: str) -> None:
     lines = file.readlines()
     file.close()
     file = open(filename, 'w', encoding='utf-8')
+    updated = False
     for line in lines:
         if idcard in line.split(';')[3]:
-            newname = input("Insert Name: ")
-            newage = int(input("Insert Age: "))
-            newaddress = input("Insert Address: ")
-            file.write(newname + ';' + str(newage) + ';' + newaddress + ';' + str(idcard) + '\n')
-        file.write(line)
+            if not updated:
+                newname = input("Insert Name: ")
+                newage = int(input("Insert Age: "))
+                newaddress = input("Insert Address: ")
+                file.write(f"{newname};{newage};{newaddress};{idcard}\n")
+                updated = True
+        else:
+            file.write(line)
     file.close()
+    if not updated:
+        print("Cliente não encontrado.")
+    else:
+        print("Cliente atualizado com sucesso.")
     return None
 
 # Delete a specific client in the client file

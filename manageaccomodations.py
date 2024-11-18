@@ -1,5 +1,5 @@
 from tabulate import tabulate
-import empty as pty
+import customers as pty
 import pandas as pd
 
 def createAccomodations(filename: str) -> None:
