@@ -1,11 +1,12 @@
-# Add a client to the client file
-def createClient(filename: str) -> None:
-    name = input("Insert Name: ")
-    age = int(input("Insert Age: "))
-    address = input("Insert Address: ")
-    idCard = int(input("Insert IDCARD: "))
+# Add an accomodation to the accomodation file
+def createAccomodation(filename: str) -> None:
+    id = int(input("Insert ID: "))
+    local = input("Insert Local: ")
+    tipology = input("Insert tipology: ")
+    type = input("Insert type: ")
+    price = float(input("Insert price: "))
     file = open(filename, 'a', encoding='utf-8')
-    file.write(name +';' + str(age) + ';' + address + ';' + str(idCard) + '\n')
+    file.write(str(id) +';' + local + ';' + tipology + ';' + type + ';' + str(price) + '\n')
     file.close()
     return None
 
