@@ -1,8 +1,5 @@
-from fileinput import filename
-
 import manageaccomodations
 import customers as managecustomers
-import empty as pty
 
 
 def menu_principal():
@@ -20,7 +17,7 @@ def menu_principal():
         )
 
         try:
-            opcao = int(pty.get_input('Escolha uma opção: '))
+            opcao = int(managecustomers.get_input('Escolha uma opção: '))
 
 
             if 1 <= opcao <= 5:
@@ -28,7 +25,7 @@ def menu_principal():
                     case 1:
                         manageaccomodations.createAccomodations('accomodations.csv')
                     case 2:
-                        managecustomers.addClient('customers.csv')
+                        managecustomers.createClient('customers.csv')
                     case 3:
                         submenu()
                     case 4:
@@ -50,24 +47,27 @@ def submenu():
             " \nMENU CLIENTS:                  "
             ' \n1. Show Clients                '
             " \n2. Remove Clients              "
-            " \n3. Update Client               "
-            " \n4. Return                      "
+            " \n3. Update Client    "
+            " \n4. List Client       "
+            " \n5. Return                      "
             " \n-----------------------------"
         )
         try:
-            sub_opcao = int(pty.get_input("Escolha uma opção: "))
+            sub_opcao = int(managecustomers.get_input("Escolha uma opção: "))
 
 
-            if 1 <= sub_opcao <= 4:
+            if 1 <= sub_opcao <= 5:
 
                 match sub_opcao:
                     case 1:
                         managecustomers.ClientsTable()
                     case 2:
-                        managecustomers.removeClient('customers.csv')
+                        managecustomers.deleteClient('customers.csv')
                     case 3:
                         managecustomers.updateClient('customers.csv')
                     case 4:
+                        managecustomers.readClient('customers.csv')
+                    case 5:
                         return
 
             else:
@@ -92,7 +92,7 @@ def menuAccomodations():
         )
         try:
 
-            opcaoAcc = int(pty.get_input('Escolha uma opcao: '))
+            opcaoAcc = int(managecustomers.get_input('Escolha uma opcao: '))
 
 
 
